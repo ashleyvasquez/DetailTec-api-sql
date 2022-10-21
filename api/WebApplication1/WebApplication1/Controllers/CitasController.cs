@@ -57,8 +57,8 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Citas emp)
         {
             string query = @"
-                           insert into dbo.Citas (cita_id , date, cedula,placa,suc_id, lavado_id, trabajador_id) 
-                           values (@cita_id , @date,  @cedula, @placa,@suc_id, @lavado_id, @trabajador_id)             
+                           insert into dbo.Citas ( date, cedula,placa,suc_id, lavado_id, trabajador_id) 
+                           values ( @date,  @cedula, @placa,@suc_id, @lavado_id, @trabajador_id)             
                      
                             ";
 
@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@cita_id", emp.cita_id);
+          
                     myCommand.Parameters.AddWithValue("@date", emp.date);
                     myCommand.Parameters.AddWithValue("@cedula", emp.cedula);
                     myCommand.Parameters.AddWithValue("@placa", emp.placa);
