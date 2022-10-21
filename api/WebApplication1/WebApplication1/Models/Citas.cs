@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ namespace WebApplication1.Models
     public class Citas
     {
         public int cita_id { get; set; }
+        public string date { get; set; }
         public int cedula { get; set; }
         public int placa { get; set; }
 
@@ -22,10 +23,17 @@ namespace WebApplication1.Models
         {
             this.cita_id = newId;
         }
+
+        public void setDate(string newDate)
+        {
+            this.date = newDate;
+        }
+
         public void setCedula(int newCedula)
         {
             this.cedula = newCedula;
         }
+
         public void setPlaca(int newPlaca)
         {
             this.placa = newPlaca;
