@@ -56,8 +56,8 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Facturas emp)
         {
             string query = @"
-                           insert into dbo.Facturas (fact_id ,cita_id,snacks_consumidos,bebidas_consumidas, precio_servicio, monto) 
-                           values (@fact_id ,@cita_id, @snacks_consumidos,@bebidas_consumidas, @precio_servicio, @monto)             
+                           insert into dbo.Facturas (cita_id,snacks_consumidos,bebidas_consumidas, precio_servicio, monto) 
+                           values (@cita_id, @snacks_consumidos,@bebidas_consumidas, @precio_servicio, @monto)             
                      
                             ";
 
@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@fact_id", emp.fact_id);
+       
                     myCommand.Parameters.AddWithValue("@cita_id", emp.cita_id);
                     myCommand.Parameters.AddWithValue("@snacks_consumidos", emp.snacks_consumidos);
                     myCommand.Parameters.AddWithValue("@bebidas_consumidas", emp.bebidas_consumidas);
