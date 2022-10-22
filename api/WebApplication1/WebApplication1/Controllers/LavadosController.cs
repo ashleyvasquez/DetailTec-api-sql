@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-
+                 
                     myCommand.Parameters.AddWithValue("@lavado_nombre", emp.lavado_nombre);
                     myCommand.Parameters.AddWithValue("@costo", emp.costo);
                     myCommand.Parameters.AddWithValue("@precio", emp.precio);
@@ -98,7 +98,7 @@ namespace WebApplication1.Controllers
                            costo=@costo,
                            precio=@precio,
                            duracion=@duracion,
-                           puntos_otorga = @puntos_otorga
+                           puntos_otorga = @puntos_otorga,
                            puntos_redimir = @puntos_redimir
                           
                            where lavado_id= @lavado_id
